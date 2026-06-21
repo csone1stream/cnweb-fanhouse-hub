@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球迷屋 · 球场内外，一方天地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f3ef;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #1f1e1b;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 90%;
+            margin: 4rem auto 3rem;
+            background: #ffffff;
+            padding: 3rem 2.5rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+            flex: 1;
+        }
+
+        @media (max-width: 520px) {
+            .page {
+                padding: 2rem 1.2rem;
+                margin: 1.5rem auto;
+                border-radius: 20px;
+            }
+        }
+
+        /* hero 横幅 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eae7e0;
+        }
+
+        .hero__label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a09888;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .hero__title {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #2c2923;
+        }
+
+        .hero__title span {
+            font-weight: 600;
+            color: #181714;
+        }
+
+        .hero__sub {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #6f675b;
+            max-width: 90%;
+        }
+
+        /* 背景说明卡片 */
+        .context-card {
+            background: #fcfaf7;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+            border-left: 4px solid #c8bca8;
+        }
+
+        .context-card h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #6f675b;
+            margin-bottom: 0.6rem;
+        }
+
+        .context-card p {
+            font-size: 0.95rem;
+            color: #3a352e;
+        }
+
+        /* 三段正文 */
+        .essay {
+            margin: 2rem 0 2.6rem;
+        }
+
+        .essay section {
+            margin-bottom: 1.8rem;
+        }
+
+        .essay h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2c2923;
+            letter-spacing: 0.3px;
+        }
+
+        .essay p {
+            font-size: 0.96rem;
+            color: #3f3b33;
+            margin-bottom: 0.5rem;
+        }
+
+        .essay p:last-child {
+            margin-bottom: 0;
+        }
+
+        .essay .inline-link {
+            color: #4f4a40;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c8bca8;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+
+        .essay .inline-link:hover {
+            color: #181714;
+            text-decoration-color: #181714;
+        }
+
+        /* 可信说明小标 */
+        .note {
+            background: #f2efe9;
+            border-radius: 40px;
+            padding: 0.8rem 1.4rem;
+            display: inline-block;
+            font-size: 0.82rem;
+            color: #4f4a40;
+            letter-spacing: 0.3px;
+            margin-bottom: 2.2rem;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #eae7e0;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #7a7264;
+            line-height: 1.6;
+        }
+
+        .footer-note a {
+            color: #2c2923;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c8bca8;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+
+        .footer-note a:hover {
+            color: #0f0e0a;
+            text-decoration-color: #0f0e0a;
+        }
+
+        .footer-note .small-meta {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.75rem;
+            color: #a09888;
+            letter-spacing: 0.5px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eae7e0;
+            margin: 2rem 0 1.2rem;
+        }
+
+        /* 引用/摘要效果 */
+        .faq-preview {
+            background: #f9f7f2;
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .faq-preview p {
+            font-size: 0.92rem;
+            color: #3f3b33;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-preview .q {
+            font-weight: 500;
+            color: #2c2923;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 首页横幅 -->
+        <div class="hero">
+            <div class="hero__label">—— 杂志专题 · 一方看台</div>
+            <h1 class="hero__title"><span>球迷屋</span> · 球场内外</h1>
+            <p class="hero__sub">一个安静的角落，把比赛、记忆和日常连成叙述。</p>
+        </div>
+
+        <!-- 背景说明 -->
+        <div class="context-card">
+            <h2>关于这个站点</h2>
+            <p>「球迷屋」并不是一个喧闹的资讯广场。它更像一间有人打理的小房间，把关于篮球、足球以及更多赛事的碎片——数据、故事、观赛笔记——整理成干净的文字和画面。没有弹窗，没有浮夸头图，只有一种朴素的愿望：让看球的人，在赛后还能找到一处可以慢慢翻的东西。</p>
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <div class="essay">
+            <section>
+                <h3>从一次偶然的存档开始</h3>
+                <p>几年前，一位球迷在整理硬盘时发现，自己存了上百张比赛截图、战术手稿和旧报纸剪影。他试着把这些零散的东西放到网上，没想到陆续有人留言：「原来那年的绝杀球是这个角度」「这张老照片我在别处从没见过」。后来这个小角落越长越具体，慢慢就成了今天的 <a href="https://cnweb-fanhouse.com" class="inline-link">球迷屋</a>——一个不以流量为刻度，而以翻阅感为尺度的个人存档。</p>
+            </section>
+
+            <section>
+                <h3>内容在精，不在杂</h3>
+                <p>站内没有机器生成的海量新闻，也没有抢时间的快讯。每一篇内容都经过筛选和标注：经典比赛的复盘、球员生涯的侧面、联赛规则的演变，甚至是看球时随手记下的半段感受。你可以把它当成一本可以随时打开的杂志，翻到哪页算哪页。对于刚接触某项运动的新人，这里也不缺平实的入门介绍——没有居高临下的术语堆砌。</p>
+            </section>
+
+            <section>
+                <h3>可信来自透明</h3>
+                <p>「球迷屋」在每篇内容末尾都会注明信息来源或参考数据，哪怕只是一条简单的比分记录。网站上没有任何竞价排名或软性植入，所有的链接和推荐都基于编辑个人判断。这种做法的回报很慢，但换来的是读者的一句「在这里看东西放心」。对于一支球队的历史或一次争议判罚，站内也尽量呈现不同角度的材料，留给读者自己判断。</p>
+            </section>
+        </div>
+
+        <!-- 摘要式 FAQ（不单独成章，只做点缀） -->
+        <div class="faq-preview">
+            <p><span class="q">常见问题摘要：</span> 内容多久更新？——不定期，但至少每周会有一篇新文章或修订。可以转载吗？——可以，注明出处即可。有 App 吗？——没有，但移动端页面阅读体验还不错。</p>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>如果你也在找一处可以慢读球场故事的地方，不妨把 <a href="https://cnweb-fanhouse.com">球迷屋</a> 加入书签。这里没有推送，没有催促，只有偶尔的更新和长久的安静。</p>
+            <span class="small-meta">杂志专题 · 2025 · 文字与页面均属个人维护</span>
+        </div>
+
+        <hr>
+        <div style="font-size: 0.75rem; color: #b5ada1; text-align: right; letter-spacing: 0.3px;">
+            — 致那些还在深夜翻比赛录像的人
+        </div>
+
+    </div>
+</body>
+</html>
